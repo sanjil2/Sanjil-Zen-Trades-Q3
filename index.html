@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            background-color: rgb(34, 34, 34);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #login-container {
+            background-color: rgb(20, 20, 20);
+            width: 500px;
+            height: 500px;
+            text-align: center;
+        }
+
+        #logo {
+            max-width: 60%;
+            margin-top: 30px;
+        }
+
+        #username, #password {
+            width: 55%;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        #login-btn {
+            width: 60%;
+            background-color: #71BE58;
+            color: #fff;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+
+        #forgot-password {
+            color: #494646;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-container">
+        <img id="logo" src="D:\Zen_Traders_Q3\company.png" alt="Company Logo">
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password ">
+        <br>
+        <button id="login-btn" onclick="login()">Login</button>
+        <div id="forgot-password">
+            <a href="mailto:support@smartserv.io?subject=Password%20Reset&body=Dear%20Support,%20I%20need%20to%20reset%20my%20password.">Forgot your password?</a>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+                   // Email format validation
+                   var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(username)) {
+                alert("Invalid email format");
+                return;
+            }
+
+            // Password validation
+            var passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?!.*[^A-Za-z\d@]).{6,}$/;
+            if (!passwordRegex.test(password)) {
+                alert("Invalid password format");
+                return;
+            }
+
+            // If validation passes, you can proceed with the login logic
+            alert("Login successful!");
+
+            if (password === "SmartServTest@123") {
+                window.location.href = "dashboard.html";
+            } else {
+                alert("Invalid username or password");
+            }
+        }
+    </script>
+</body>
+</html>
